@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useGetRepoByIdQuery } from '../services/service';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
+import { Loader } from '../components/Loader';
 
 export function Repo() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export function Repo() {
   }, [data?.full_name]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
   if (isError) {
     return <p>Something went wrong</p>;
