@@ -31,7 +31,7 @@ export function Repo() {
         })
         .catch(function (error) {
           setMdxDataError(
-            `Unexpected error: ${JSON.stringify(error)}, please try again later`
+            `Unexpected error: ${error?.message}, please try again later`
           );
         });
     }
