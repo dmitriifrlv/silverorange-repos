@@ -47,7 +47,7 @@ export function Repo() {
     <main>
       <nav>
         <Button onClick={() => navigate('/')} variant="contained">
-          Go Back
+          Go Home
         </Button>
       </nav>
 
