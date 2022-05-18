@@ -56,3 +56,8 @@ body,
   overflow-y: auto;
   padding: 16px;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
