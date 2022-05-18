@@ -18,7 +18,6 @@ export function Repo() {
     repoId as string
   );
   const [mdxData, setMdxData] = useState<any>(null);
-  const [mdxError, setMdxDataError] = useState<any>(null);
 
   useEffect(() => {
     if (data?.full_name) {
@@ -28,11 +27,6 @@ export function Repo() {
         )
         .then(function (response) {
           setMdxData(response.data);
-        })
-        .catch(function (error) {
-          setMdxDataError(
-            `Unexpected error: ${error?.message}, please try again later`
-          );
         });
     }
   }, [data?.full_name]);
@@ -58,11 +52,7 @@ export function Repo() {
         </p>
       </div>
       <README_CONTAINER>
-        {mdxData ? (
-          <ReactMarkdown children={mdxData} />
-        ) : mdxError ? (
-          mdxError
-        ) : null}
+        {mdxData ? <ReactMarkdown children={mdxData} /> : null}
       </README_CONTAINER>
     </main>
   ) : null;
