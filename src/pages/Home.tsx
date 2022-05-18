@@ -9,14 +9,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Typography } from '@mui/material';
-import styled from '@emotion/styled';
 import { ErrorMessage, Loader } from '../components';
-
-const APP_CONTAINER = styled.main`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
 
 export function Home() {
   const navigate = useNavigate();
@@ -38,7 +31,7 @@ export function Home() {
   }
 
   return data && isSuccess ? (
-    <APP_CONTAINER>
+    <main>
       <Typography align="center" variant="h4">
         List of available repositories
       </Typography>
@@ -90,6 +83,6 @@ export function Home() {
             );
           })}
       </List>
-    </APP_CONTAINER>
+    </main>
   ) : null;
 }
