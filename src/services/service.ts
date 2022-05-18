@@ -9,7 +9,10 @@ export const reposApi = createApi({
     getAllRepos: builder.query<Repo[], void>({
       query: () => `repos`,
     }),
+    getRepoById: builder.query<Repo, string>({
+      query: (id) => `repos/${id}`,
+    }),
   }),
 });
 
-export const { useGetAllReposQuery } = reposApi;
+export const { useGetAllReposQuery, useGetRepoByIdQuery } = reposApi;
