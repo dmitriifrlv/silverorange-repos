@@ -1,3 +1,41 @@
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 100;
+  font-display: swap;
+  src: local('Roboto'), url(./assets/fonts/Roboto-Thin.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-display: swap;
+  src: local('Roboto'), url(./assets/fonts/Roboto-Light.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto'), url(./assets/fonts/Roboto-Regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-display: swap;
+  src: local('Roboto'), url(./assets/fonts/Roboto-Medium.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-display: swap;
+  src: local('Roboto'), url(./assets/fonts/Roboto-Bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 900;
+  font-display: swap;
+  src: local('Roboto'), url(./assets/fonts/Roboto-Black.woff2) format('woff2');
+}
+
 *,
 *::before,
 *::after {
@@ -10,4 +48,11 @@ html,
 body,
 #root {
   height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+#root {
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 16px;
 }
