@@ -10,7 +10,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Typography } from '@mui/material';
 import styled from '@emotion/styled';
-import { Loader } from '../components/Loader';
+import { ErrorMessage, Loader } from '../components';
 
 const APP_CONTAINER = styled.main`
   display: flex;
@@ -34,7 +34,7 @@ export function Home() {
     return <Loader />;
   }
   if (isError) {
-    return <p>Something went wrong</p>;
+    return <ErrorMessage />;
   }
 
   return data && isSuccess ? (
