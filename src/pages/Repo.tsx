@@ -3,7 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useGetRepoByIdQuery } from '../services/service';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
-import { Loader } from '../components/Loader';
+import { Loader, ErrorMessage } from '../components';
+import Button from '@mui/material/Button';
+import styled from '@emotion/styled';
+
+const README_CONTAINER = styled.div`
+  padding: 0 16px;
+`;
 
 export function Repo() {
   const navigate = useNavigate();
@@ -35,29 +41,29 @@ export function Repo() {
     return <Loader />;
   }
   if (isError) {
-    return <p>Something went wrong</p>;
+    return <ErrorMessage />;
   }
   return repoId && isSuccess && data ? (
-    <div>
-      <button onClick={() => navigate('/')}>Go Back</button>
-      <header>{data.name}</header>
+    <main>
+      <nav>
+        <Button onClick={() => navigate('/')} variant="contained">
+          Go Back
+        </Button>
+      </nav>
 
-      <main>
-        <div>
-          <p>
-            The most recent commit date -
-            {new Date(data.updated_at).toLocaleString()}
-          </p>
-        </div>
-        <div>
-          <p>README</p>
-          {mdxData ? (
-            <ReactMarkdown children={mdxData} />
-          ) : mdxError ? (
-            mdxError
-          ) : null}
-        </div>
-      </main>
-    </div>
+      <div>
+        <p>
+          The most recent commit date -
+          {new Date(data.updated_at).toLocaleString()}
+        </p>
+      </div>
+      <README_CONTAINER>
+        {mdxData ? (
+          <ReactMarkdown children={mdxData} />
+        ) : mdxError ? (
+          mdxError
+        ) : null}
+      </README_CONTAINER>
+    </main>
   ) : null;
 }
